@@ -14,7 +14,7 @@ För att använda applikationen, följ dessa steg:
 ## Krav
 För att använda denna app behöver du följande:
 - Python 3 installerat på din dator.
-- Nödvändiga Python-paket installerade. 
+- Nödvändiga Python-paket installerade från requirements.txt
 
 
 # Weather Forecast Application
