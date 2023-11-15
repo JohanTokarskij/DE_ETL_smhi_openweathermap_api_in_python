@@ -140,10 +140,10 @@ def create_excel(data):
                     for col_num, value in enumerate(observation, start=1):
                         sheet.cell(row=start_row, column=col_num, value=value)
                     start_row+=1
-                print(f'Filen har blivit uppdaterad med senaste data från {"SMHI" if data==smhi_data else "OpenWeatherMap"}.')
+                print(f'Filen har blivit uppdaterad med senaste data från {"SMHI" if data==request_smhi_api() else "OpenWeatherMap"}.')
                 break
         if not data_needs_append:
-            print(f'Inga uppdateringar behövs för {"SMHI" if data==smhi_data else "OpenWeatherMap"}.')
+            print(f'Inga uppdateringar behövs för {"SMHI" if data==request_smhi_api() else "OpenWeatherMap"}.')
         
         workbook.save('Prognos.xlsx')
     
@@ -169,7 +169,7 @@ def create_excel(data):
             sheet.append(value)
         workbook.save('Prognos.xlsx')
         print('Filen har blivit skapad.')
-        print(f'Filen har blivit uppdaterad med senaste data från {"SMHI" if data==smhi_data else "OpenWeatherMap"}.')
+        print(f'Filen har blivit uppdaterad med senaste data från {"SMHI" if data==request_smhi_api() else "OpenWeatherMap"}.')
 
 def print_last_update(provider):
     """
@@ -206,6 +206,3 @@ def print_last_update(provider):
     else:
         print('Filen existerar inte. Använd undermeny "1. Hämta data" för att skapa filen!')
     
-
-smhi_data = request_smhi_api()
-owm_data = request_owm_api()
